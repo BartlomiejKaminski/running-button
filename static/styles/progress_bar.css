@@ -1,0 +1,151 @@
+.progress-bar {
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    align-self: flex-end;
+    width: 95%;
+    background-color: rgb(241, 241, 241);
+    
+  }
+  
+  .progress-bar-wrapper {
+    display: flex;
+    align-items: center;
+    width: 90%;
+    margin: 10px auto;
+  }
+  
+  .progress-bar-lightsaber-handle {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    flex-basis: 20%;
+  }
+  
+  .progress-bar-lightsaber-handle>img {
+    width: 100%;
+  }
+  
+  .progress-bar-lightsaber-empty {
+    height: 1.7vw;
+    flex-grow: 1;
+    margin-left: -1.2vw;
+    background-color: rgb(241, 241, 241);
+    border-radius: 50px;
+  }
+  
+  .progress-bar-lightsaber-full {
+    width: 100%;
+    height: 100%;
+    background-color: #eee;
+    border-radius: 50px;
+    box-shadow: 0 0 10px 4px #00ff00;
+    animation: progress-bar 120s linear forwards;
+  }
+  
+  .progress-bar-timer {
+    margin: 10px auto;
+    text-align: center;
+    font-size: 32px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    color: #00ff00;
+    animation: text-color 120s linear forwards;
+    background-color: rgb(81, 68, 94);
+    border-radius: 20px;
+    width: 35%;
+  }
+  
+  @keyframes progress-bar {
+    14.2% {
+      box-shadow: 0 0 10px 4px #00ff00;
+    }
+  
+    28.4% {
+      box-shadow: 0 0 10px 4px #0add9e;
+    }
+  
+    42.6% {
+      box-shadow: 0 0 10px 4px #00e1ff;
+    }
+  
+    56.8% {
+      box-shadow: 0 0 10px 4px #008cff;
+    }
+  
+    71% {
+      box-shadow: 0 0 10px 4px #ae00ff;
+    }
+  
+    85.5% {
+      box-shadow: 0 0 10px 4px #da3259;
+    }
+  
+    99.99% {
+      box-shadow: 0 0 10px 4px #f02151;
+    }
+  
+    100% {
+      width: 0;
+      box-shadow: none;
+    }
+  }
+  
+  @keyframes text-color {
+    49% {
+      color: #00ff00;
+    }
+  
+    51% {
+      color: #eeff00;
+    }
+  
+    73% {
+      color: #eeff00;
+    }
+  
+    75% {
+      color: #ff8800;
+    }
+  
+    80.5% {
+      color: #ff8800;
+    }
+  
+    85.5% {
+      color: #dd3d63;
+    }
+  
+    100% {
+      color: #f02151;
+    }
+  }
+  
+  @media screen and (max-width: 1024px) {
+    .progress-bar-timer {
+      font-size: 28px;
+    }
+  }
+  
+  @media screen and (max-width: 768px) {
+    .progress-bar-timer {
+      font-size: 24px;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    .progress-bar-timer {
+      font-size: 20px;
+      font-weight: 600;
+    }
+    .progress-bar-timer{
+        width: 50%;
+    }
+  }
+  
+  @media screen and (max-width: 360px) {
+    .progress-bar-timer {
+      font-size: 16px;
+    }
+  }
