@@ -142,7 +142,7 @@ let timeLeft;
 const ProgressBar = () => {
 
   document.querySelector('.progress-bar').style.display = "block"; 
-  const timeLimit = 50;
+  const timeLimit = 10;
   let timePassed = 0;
   timeLeft = timeLimit;
 
@@ -248,6 +248,15 @@ function makeClickable(modal){
     overlay.classList.add('clickable')
   },1800)
 }
+//------------------------------HALL OF FAME
+
+const hallOfFameButton = document.getElementById('hall-of-fame-button');
+
+hallOfFameButton.addEventListener('click', openHallOfFame);
+
+function openHallOfFame(){
+  console.log('hielou')
+};
 
 //------------------------------RESTART
 
