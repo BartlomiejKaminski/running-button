@@ -142,7 +142,7 @@ let timeLeft;
 const ProgressBar = () => {
 
   document.querySelector('.progress-bar').style.display = "block"; 
-  const timeLimit = 10;
+  const timeLimit = 3;
   let timePassed = 0;
   timeLeft = timeLimit;
 
@@ -251,11 +251,18 @@ function makeClickable(modal){
 //------------------------------HALL OF FAME
 
 const hallOfFameButton = document.getElementById('hall-of-fame-button');
+const hallOfFameInput = document.getElementById('hall-of-fame-input');
+let playerName = ''; 
 
+hallOfFameButton.addEventListener('click', getInputValue);
 hallOfFameButton.addEventListener('click', openHallOfFame);
 
+function getInputValue(){
+  playerName = document.getElementById('hall-of-fame-input').value;
+}
+
 function openHallOfFame(){
-  console.log('hielou')
+  console.log(`hielou ${playerName}`);
 };
 
 //------------------------------RESTART
