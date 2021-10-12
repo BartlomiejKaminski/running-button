@@ -162,9 +162,8 @@ const ProgressBar = () => {
         document.querySelector('.progress-bar').style.display = "none";
         timerExecuted = false;
         button.style.display = `none`;
-        openPopup()
+        openPopup();
         makeClickable()
-        // TU DODAC FUNKCJE RESTART
       }
     }, 1000)
   }
@@ -196,8 +195,9 @@ const ProgressBar = () => {
 
 const closeModalButtons = document.querySelectorAll('[data-close-button]');
 const overlay = document.getElementById('overlay');
+const modal = document.getElementById('modals')
  
-function openPopup(){
+function openPopup() {
   const modal = document.getElementById('modals')
   openModal(modal);
   makeClickable(modal);
@@ -219,6 +219,10 @@ closeModalButtons.forEach(button => {
   })
 })
 
+modal.addEventListener('click', (e) => {
+  e.stopPropagation();
+})
+
 overlay.addEventListener('click', (e) => {
   e.stopPropagation();
   const modals = document.querySelectorAll('.modals.active')
@@ -234,6 +238,7 @@ function closeModal(modal) {
   modal.classList.remove('clickable')
   overlay.classList.remove('clickable')
 }
+
 
 function openModal(modal) {
   if (modal == null) return
@@ -252,7 +257,7 @@ function makeClickable(modal){
 
 const hallOfFameButton = document.getElementById('hall-of-fame-button');
 const hallOfFameInput = document.getElementById('hall-of-fame-input');
-let playerName = ''; 
+let playerName = '';
 
 hallOfFameButton.addEventListener('click', getInputValue);
 hallOfFameButton.addEventListener('click', openHallOfFame);
@@ -263,7 +268,30 @@ function getInputValue(){
 
 function openHallOfFame(){
   console.log(`hielou ${playerName}`);
+
+  let ratio = (userPoints/buttonPoints).toFixed(2);
+  
+  let playerDetails = {
+    name: playerName,
+    points: userPoints,
+    level: userLevel,
+    ratio: ratio
+  };
+
+  let playerDetails_serialized = JSON.stringify(playerDetails);
+  
+  localStorage.setItem("player", playerDetails_serialized);
+  
+  let playerDetails_deserialized = JSON.parse(localStorage.getItem("player"));
+
+  console.log(playerDetails_deserialized);
 };
+
+
+
+
+
+
 
 //------------------------------RESTART
 
