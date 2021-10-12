@@ -44,7 +44,9 @@ function runButtonClickEvent(e) {
 
 function runPlaygroundClickEvent() {
     buttonColor = `red`
-    buttonPoints = buttonPoints + 1;
+    if (timeLeft > 0){
+      buttonPoints = buttonPoints + 1;
+    }
     document.getElementById('button-points').innerHTML = buttonPoints;
 }
 
@@ -207,8 +209,6 @@ function openPopup() {
   document.querySelector('#you-hit').innerHTML = `Hits: ${userPoints}`
   document.querySelector('#you-miss').innerHTML = `Misses: ${buttonPoints}`
   document.querySelector('#ratio').innerHTML = `Your Hit/Miss Ratio was: ${ratio}`
-
-
 }
 
 closeModalButtons.forEach(button => {
@@ -244,12 +244,12 @@ function openModal(modal) {
   if (modal == null) return
   modal.classList.add('active')
   overlay.classList.add('active')
+  modal.classList.add('clickable')
 }
 
 function makeClickable(modal){
   setTimeout(() =>{
     if (modal == null) return
-    modal.classList.add('clickable')
     overlay.classList.add('clickable')
   },1800)
 }
@@ -275,7 +275,8 @@ function openHallOfFame(){
     name: playerName,
     points: userPoints,
     level: userLevel,
-    ratio: ratio
+    ratio: ratio,
+    miss: buttonPoints
   };
 
   let playerDetails_serialized = JSON.stringify(playerDetails);
