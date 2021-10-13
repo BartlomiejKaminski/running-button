@@ -59,6 +59,26 @@ html{
     align-items: center;
 }
 
+#hall-of-fame{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: 500ms ease-in-out;
+    background-color: #c2c2c2;
+    border: 2px solid #0bc7ec;
+    border-radius: 10px;
+    z-index: 12;
+    height: 60%;
+    width: 700px;
+    max-width: 80%;
+}
+
+#hall-of-fame.active{
+    transform: translate(-50%, -50%) scale(1);
+    pointer-events: none;
+}
+
 .modals{
     position: fixed;
     top: 50%;
@@ -137,4 +157,20 @@ html{
 
 #overlay.active.clickable{
     pointer-events: all;
+}
+
+#sing-up > p {
+    text-align: center;
+    font-weight: 700;
+}
+
+#hall-of-fame-input{
+    width: 60%;
+    border: 1px solid black;
+    border-radius: 6px;
+}
+
+#input-area{
+    display: flex;
+    justify-content: space-evenly;
 }

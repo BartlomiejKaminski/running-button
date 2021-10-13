@@ -237,6 +237,7 @@ function closeModal(modal) {
   overlay.classList.remove('active')
   modal.classList.remove('clickable')
   overlay.classList.remove('clickable')
+  hallOfFame.classList.remove('active')
 }
 
 
@@ -257,6 +258,7 @@ function makeClickable(modal){
 
 const hallOfFameButton = document.getElementById('hall-of-fame-button');
 const hallOfFameInput = document.getElementById('hall-of-fame-input');
+const hallOfFame = document.getElementById('hall-of-fame');
 let playerName = '';
 
 hallOfFameButton.addEventListener('click', getInputValue);
@@ -267,8 +269,6 @@ function getInputValue(){
 }
 
 function openHallOfFame(){
-  console.log(`hielou ${playerName}`);
-
   let ratio = (userPoints/buttonPoints).toFixed(2);
   
   let playerDetails = {
@@ -280,12 +280,14 @@ function openHallOfFame(){
   };
 
   let playerDetails_serialized = JSON.stringify(playerDetails);
-  
+
   localStorage.setItem("player", playerDetails_serialized);
-  
+
   let playerDetails_deserialized = JSON.parse(localStorage.getItem("player"));
 
   console.log(playerDetails_deserialized);
+
+  hallOfFame.classList.add('active');
 };
 
 
