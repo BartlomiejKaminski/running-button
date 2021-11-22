@@ -291,11 +291,6 @@ function openHallOfFame(){
 };
 
 
-
-
-
-
-
 //------------------------------RESTART
 
 function restartGame() {
